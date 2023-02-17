@@ -1,0 +1,46 @@
+<launch>
+
+    <!-- Empty world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find slr_gazebo)/launch/world/normal.world"/>
+      <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <!-- Robot -->
+    <arg name="model" default="$(find robot_description)/robot/slr.urdf.xacro"/>
+    <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+  		args="          -x 0
+                      -y 0
+                      -z 0.4
+                      -R 0
+                      -P 0
+                      -Y 0
+                      -urdf
+                      -model slr
+                      -param robot_description"/>
+
+    <!-- Controllers -->
+    <rosparam file="$(find slr_gazebo)/config/controllers.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" ns="spot_gazebo"
+          args="FL_cntr FL_servo_cntr FL_link1_cntr FL_link2_cntr
+                FR_cntr FR_servo_cntr FR_link1_cntr FR_link2_cntr
+                ML_cntr ML_servo_cntr ML_link1_cntr ML_link2_cntr
+                MR_cntr MR_servo_cntr MR_link1_cntr MR_link2_cntr
+                RL_cntr RL_servo_cntr RL_link1_cntr RL_link2_cntr
+                RR_cntr RR_servo_cntr RR_link1_cntr RR_link2_cntr"/>
+
+    <!--  args="FL_cntr FL_servo_cntr FL_link1_cntr FL_link2_cntr
+                FR_cntr FR_servo_cntr FR_link1_cntr FR_link2_cntr
+                ML_cntr ML_servo_cntr ML_link1_cntr ML_link2_cntr
+                MR_cntr MR_servo_cntr MR_link1_cntr MR_link2_cntr
+                RL_cntr RL_servo_cntr RL_link1_cntr RL_link2_cntr
+                RR_cntr RR_servo_cntr RR_link1_cntr RR_link2_cntr"/-->
+
+    <!-- Robot state publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher" respawn="false" output="screen">
+      <remap from="/joint_states" to="/spot_gazebo/joint_states" />
+      <param name="publish_frequency" type="double" value="40" />
+    </node>
+  
+</launch>

@@ -1,0 +1,131 @@
+spot_gazebo:
+  
+  joint_states_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 25
+
+  # FL leg controllers --------------------------------
+  FL_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FL_leg_joint
+      pid: {p: 3, i: 0.5, d: 0}
+        
+  FL_servo_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FL_leg_servo_joint
+      pid: {p: 16, i: 4, d: 0}
+
+  FL_link1_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FL_leg_link1_joint
+      pid: {p: 4.0, i: 0.7, d: 0}
+
+  FL_link2_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FL_leg_link2_joint
+      pid: {p: 2, i: 0.4, d: 0}
+
+  # FR leg controllers --------------------------------
+  FR_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FR_leg_joint
+      pid: {p: 3, i: 0.5, d: 0}
+        
+  FR_servo_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FR_leg_servo_joint
+      pid: {p: 16, i: 4, d: 0}
+
+  FR_link1_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FR_leg_link1_joint
+      pid: {p: 4.0, i: 0.7, d: 0}
+
+  FR_link2_cntr:
+      type: effort_controllers/JointPositionController
+      joint: FR_leg_link2_joint
+      pid: {p: 2, i: 0.4, d: 0}
+
+  # ML leg controllers --------------------------------
+  ML_cntr:
+      type: effort_controllers/JointPositionController
+      joint: ML_leg_joint
+      pid: {p: 3, i: 0.5, d: 0}
+        
+  ML_servo_cntr:
+      type: effort_controllers/JointPositionController
+      joint: ML_leg_servo_joint
+      pid: {p: 16, i: 4, d: 0}
+
+  ML_link1_cntr:
+      type: effort_controllers/JointPositionController
+      joint: ML_leg_link1_joint
+      pid: {p: 4.0, i: 0.7, d: 0}
+
+  ML_link2_cntr:
+      type: effort_controllers/JointPositionController
+      joint: ML_leg_link2_joint
+      pid: {p: 2, i: 0.4, d: 0}
+
+  # MR leg controllers --------------------------------
+  MR_cntr:
+      type: effort_controllers/JointPositionController
+      joint: MR_leg_joint
+      pid: {p: 3, i: 0.5, d: 0}
+        
+  MR_servo_cntr:
+      type: effort_controllers/JointPositionController
+      joint: MR_leg_servo_joint
+      pid: {p: 16, i: 4, d: 0}
+
+  MR_link1_cntr:
+      type: effort_controllers/JointPositionController
+      joint: MR_leg_link1_joint
+      pid: {p: 4.0, i: 0.7, d: 0}
+
+  MR_link2_cntr:
+      type: effort_controllers/JointPositionController
+      joint: MR_leg_link2_joint
+      pid: {p: 2, i: 0.4, d: 0}
+
+  # RR leg controllers --------------------------------
+  RR_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RR_leg_joint
+      pid: {p: 3, i: 0.5, d: 0}
+        
+  RR_servo_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RR_leg_servo_joint
+      pid: {p: 16, i: 4, d: 0}
+
+  RR_link1_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RR_leg_link1_joint
+      pid: {p: 4.0, i: 0.7, d: 0}
+
+  RR_link2_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RR_leg_link2_joint
+      pid: {p: 2, i: 0.4, d: 0}
+
+  # RL leg controllers --------------------------------    
+  RL_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RL_leg_joint
+      pid: {p: 3, i: 0.5, d: 0}
+        
+  RL_servo_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RL_leg_servo_joint
+      pid: {p: 16, i: 4, d: 0}
+        
+  RL_link1_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RL_leg_link1_joint
+      pid: {p: 4.0, i: 0.7, d: 0}
+
+  RL_link2_cntr:
+      type: effort_controllers/JointPositionController
+      joint: RL_leg_link2_joint
+      pid: {p: 2, i: 0.4, d: 0}

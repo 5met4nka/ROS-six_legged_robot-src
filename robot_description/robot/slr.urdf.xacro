@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<robot name="slr" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="M_PI" value="3.14159274"/>
+
+  <xacro:include filename="$(find robot_description)/urdf/base/base.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/leg_joint/leg_joint.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/leg_servo/leg_servo.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/leg_link1/leg_link1.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/leg_link2/leg_link2.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/IMU/IMU.urdf.xacro"/>
+
+  <!-- =============== Link & Joint =============== -->
+  <!-- Base -->
+  <link name="base_footprint"/>
+  <xacro:base_v0 parent="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:base_v0>
+
+  <xacro:leg_joint_v0 prefix="RL" parent="base_link">
+    <origin xyz="-0.045 0.0375 0.01625" rpy="${M_PI/2} 0 ${3*M_PI/4}"/>  
+    <axis xyz="0 -1 0"/> <!-- 0 -1 0 -->
+  </xacro:leg_joint_v0>
+
+  <xacro:leg_joint_v0 prefix="RR" parent="base_link">
+    <origin xyz="-0.045 -0.0375 0.01625" rpy="${M_PI/2} 0 ${-3*M_PI/4}"/> 
+    <axis xyz="0 1 0"/>
+  </xacro:leg_joint_v0>
+
+  <xacro:leg_joint_v0 prefix="ML" parent="base_link">
+    <origin xyz="0 0.0425 0.01625" rpy="${M_PI/2} 0 ${M_PI/2}"/>  
+    <axis xyz="0 -1 0"/> <!-- 0 -1 0 -->
+  </xacro:leg_joint_v0>
+
+  <xacro:leg_joint_v0 prefix="MR" parent="base_link">
+    <origin xyz="0 -0.0425 0.01625" rpy="${M_PI/2} 0 ${-M_PI/2}"/> 
+    <axis xyz="0 1 0"/>
+  </xacro:leg_joint_v0>
+
+  <xacro:leg_joint_v0 prefix="FL" parent="base_link">
+    <origin xyz="0.045 0.0375 0.01625" rpy="${M_PI/2} 0 ${M_PI/4}"/>
+    <axis xyz="0 -1 0"/> <!-- 0 -1 0 -->
+  </xacro:leg_joint_v0>
+
+  <xacro:leg_joint_v0 prefix="FR" parent="base_link">
+    <origin xyz="0.045 -0.0375 0.01625" rpy="${M_PI/2} 0 ${-M_PI/4}"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_joint_v0>
+
+  <xacro:leg_servo_v0 prefix="FL" parent="FL_leg_joint_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_servo_v0>
+
+  <xacro:leg_servo_v0 prefix="RL" parent="RL_leg_joint_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_servo_v0>
+  
+  <xacro:leg_servo_v0 prefix="ML" parent="ML_leg_joint_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_servo_v0>
+
+  <xacro:leg_servo_v0 prefix="MR" parent="MR_leg_joint_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_servo_v0>
+
+  <xacro:leg_servo_v0 prefix="FR" parent="FR_leg_joint_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_servo_v0>
+
+  <xacro:leg_servo_v0 prefix="RR" parent="RR_leg_joint_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_servo_v0>
+  
+  <xacro:leg_link1_v0 prefix="FL" parent="FL_leg_joint_link">
+    <origin xyz="0.045 0.025 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link1_v0>  
+
+  <xacro:leg_link1_v0 prefix="RL" parent="RL_leg_joint_link">
+    <origin xyz="0.045 0.025 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link1_v0>  
+
+  <xacro:leg_link1_v0 prefix="ML" parent="ML_leg_joint_link">
+    <origin xyz="0.045 0.025 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link1_v0>  
+
+  <xacro:leg_link1_v0 prefix="MR" parent="MR_leg_joint_link">
+    <origin xyz="0.045 0.025 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link1_v0>  
+
+  <xacro:leg_link1_v0 prefix="FR" parent="FR_leg_joint_link">
+    <origin xyz="0.045 0.025 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link1_v0>  
+
+  <xacro:leg_link1_v0 prefix="RR" parent="RR_leg_joint_link">
+    <origin xyz="0.045 0.025 0" rpy="${M_PI/2} 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link1_v0>  
+
+  <xacro:leg_link2_v0 prefix="FL" parent="FL_leg_servo_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI}  0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link2_v0>  
+
+  <xacro:leg_link2_v0 prefix="RL" parent="RL_leg_servo_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI}  0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link2_v0> 
+
+  <xacro:leg_link2_v0 prefix="ML" parent="ML_leg_servo_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI}  0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link2_v0>  
+
+  <xacro:leg_link2_v0 prefix="MR" parent="MR_leg_servo_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI}  0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link2_v0> 
+
+  <xacro:leg_link2_v0 prefix="FR" parent="FR_leg_servo_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI}  0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link2_v0>  
+
+  <xacro:leg_link2_v0 prefix="RR" parent="RR_leg_servo_link">
+    <origin xyz="0.045 0 0" rpy="${M_PI}  0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:leg_link2_v0> 
+
+  <xacro:imu_v0 parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:imu_v0>
+
+  <!-- =============== Transmissions =============== -->
+  <xacro:leg_joint_trans_v0 prefix="RL"/>
+  <xacro:leg_joint_trans_v0 prefix="RR"/>
+  <xacro:leg_joint_trans_v0 prefix="ML"/>
+  <xacro:leg_joint_trans_v0 prefix="MR"/>
+  <xacro:leg_joint_trans_v0 prefix="FL"/>
+  <xacro:leg_joint_trans_v0 prefix="FR"/>
+
+  <xacro:leg_servo_trans_v0 prefix="RL"/>
+  <xacro:leg_servo_trans_v0 prefix="RR"/>
+  <xacro:leg_servo_trans_v0 prefix="ML"/>
+  <xacro:leg_servo_trans_v0 prefix="MR"/>
+  <xacro:leg_servo_trans_v0 prefix="FL"/>
+  <xacro:leg_servo_trans_v0 prefix="FR"/>
+
+  <xacro:leg_link1_trans_v0 prefix="RL"/>
+  <xacro:leg_link1_trans_v0 prefix="RR"/>
+  <xacro:leg_link1_trans_v0 prefix="ML"/>
+  <xacro:leg_link1_trans_v0 prefix="MR"/>  
+  <xacro:leg_link1_trans_v0 prefix="FL"/>
+  <xacro:leg_link1_trans_v0 prefix="FR"/>
+
+  <xacro:leg_link2_trans_v0 prefix="RL"/>
+  <xacro:leg_link2_trans_v0 prefix="RR"/>
+  <xacro:leg_link2_trans_v0 prefix="ML"/>
+  <xacro:leg_link2_trans_v0 prefix="MR"/>  
+  <xacro:leg_link2_trans_v0 prefix="FL"/>
+  <xacro:leg_link2_trans_v0 prefix="FR"/>
+  
+  <!-- =============== Gazebo =============== -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+        <robotNamespace>a1_gazebo</robotNamespace>
+        <jointName>FL_leg_joint, FL_leg_servo_joint, FL_leg_link1_joint, FL_leg_link2_joint,
+                   FR_leg_joint, FR_leg_servo_joint, FR_leg_link1_joint, FR_leg_link2_joint,
+                   ML_leg_joint, ML_leg_servo_joint, ML_leg_link1_joint, ML_leg_link2_joint,
+                   MR_leg_joint, MR_leg_servo_joint, MR_leg_link1_joint, MR_leg_link2_joint,
+                   RL_leg_joint, RL_leg_servo_joint, RL_leg_link1_joint, RL_leg_link2_joint,
+                   RR_leg_joint, RR_leg_servo_joint, RR_leg_link1_joint, RR_leg_link2_joint</jointName>
+        <updateRate>100</updateRate>
+    </plugin>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>spot_gazebo</robotNamespace>
+    </plugin>
+  <!-- base_link odometry -->
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>a1/odom</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
+  </gazebo>
+
+  <xacro:base_gazebo_v0/>
+  <xacro:leg_joint_gazebo_v0 prefix="RL"/>
+  <xacro:leg_joint_gazebo_v0 prefix="FL"/>
+  <xacro:leg_joint_gazebo_v0 prefix="RR"/>
+  <xacro:leg_joint_gazebo_v0 prefix="FR"/>
+  <xacro:leg_servo_gazebo_v0 prefix="RL"/>
+  <xacro:leg_servo_gazebo_v0 prefix="FL"/>
+  <xacro:leg_servo_gazebo_v0 prefix="RR"/>
+  <xacro:leg_servo_gazebo_v0 prefix="FR"/> 
+  <xacro:imu_gazebo_v0/>
+
+</robot>
