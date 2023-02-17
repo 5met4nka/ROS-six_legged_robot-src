@@ -1,0 +1,44 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/nikita/four_ws_robot/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/nikita/catkin_ws/devel/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/amcl/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/base_local_planner/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/carrot_planner/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/clear_costmap_recovery/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/costmap_2d/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/dwa_local_planner/include/**",
+        "/home/nikita/four_ws_robot/src/four_wheel_steering_controller/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/global_planner/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/map_server/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/move_base/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/move_slow_and_clear/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/nav_core/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/navfn/include/**",
+        "/home/nikita/four_ws_robot/src/openslam_gmapping/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/rotate_recovery/include/**",
+        "/home/nikita/catkin_ws/src/sports_pkg/include/**",
+        "/home/nikita/four_ws_robot/src/tf2_sensor_msgs/include/**",
+        "/home/nikita/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/nikita/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/nikita/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/home/nikita/four_ws_robot/src/urdf_geometry_parser/include/**",
+        "/home/nikita/four_ws_robot/src/navigation/voxel_grid/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
